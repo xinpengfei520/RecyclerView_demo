@@ -1,70 +1,50 @@
 package com.atguigu.recyclerview_demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-import java.util.ArrayList;
-import java.util.List;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class MainActivity extends AppCompatActivity {
-
-    private RecyclerView mRecyclerView;
-    private List<String> mDatas; // 集合数据
-    private RvAdapter mAdapter;  // 适配器
+    private Button btn_staggered;
+    private Button btn_addHead;
+    private Button btn_linearLayout;
+    private Button btn_onAttach;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        btn_staggered = (Button) findViewById(R.id.btn_staggered);
+        btn_addHead = (Button) findViewById(R.id.btn_addHead);
+        btn_linearLayout = (Button) findViewById(R.id.btn_linearLayout);
+        btn_onAttach = (Button) findViewById(R.id.btn_onAttach);
 
-        initData();
-
-        // 设置布局管理器,控制其要显示的样式(瀑布流垂直方向为4列,如果是水平方向就是4行)
-        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL));
-
-        mAdapter = new RvAdapter(this, mDatas);
-
-        mRecyclerView.setAdapter(mAdapter);
-
-        // 设置RecyclerView的Item之间的分割线
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
-
-        // 设置增加、移除item的动画
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
+        btn_staggered.setOnClickListener(this);
+        btn_addHead.setOnClickListener(this);
+        btn_linearLayout.setOnClickListener(this);
+        btn_onAttach.setOnClickListener(this);
     }
 
-    private void initData() {
-        mDatas = new ArrayList<>();
-        for (int i = 'A'; i <= 'Z'; i++) {
-            mDatas.add("" + (char) i);
-        }
-    }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.option_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.id_action_add:
-                mAdapter.addData(1);  // 在指定位置插入
-//                mAdapter.addData(); // 在末尾位置插入一个随机产生的数字
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_staggered:
+                startActivity(new Intent(MainActivity.this, StaggeredGridLayoutActivity.class));
                 break;
-            case R.id.id_action_delete:
-                mAdapter.removeData(1);
+            case R.id.btn_addHead:
+                startActivity(new Intent(MainActivity.this, AddHeadRecyclerViewActivity.class));
+                break;
+            case R.id.btn_linearLayout:
+                startActivity(new Intent(MainActivity.this, LinearLayoutActivity.class));
+                break;
+            case R.id.btn_onAttach:
+                startActivity(new Intent(MainActivity.this, onViewAttachedToWindow.class));
                 break;
         }
-        return true;
     }
 }
