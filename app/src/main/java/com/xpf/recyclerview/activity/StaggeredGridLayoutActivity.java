@@ -8,7 +8,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.xpf.recyclerview.DividerItemDecoration;
+import com.xpf.recyclerview.view.DividerItemDecoration;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.RvAdapter;
 
@@ -36,7 +36,7 @@ public class StaggeredGridLayoutActivity extends AppCompatActivity {
         initData();
 
         // 设置布局管理器,控制其要显示的样式(瀑布流垂直方向为4列,如果是水平方向就是4行)
-        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL));
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
 
         mAdapter = new RvAdapter(this, mDatas);
 

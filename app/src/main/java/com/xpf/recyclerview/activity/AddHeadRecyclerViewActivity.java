@@ -12,7 +12,8 @@ import com.xpf.recyclerview.R;
 
 /**
  * Created by xpf on 2016/11/27 :)
- * Function:RecyclerView的GridLayoutManager加头
+ * Function:RecyclerView的GridLayoutManager加头(SpanSize 实现)
+ * 这种情况适用于指定位置设置不同的 position SpanSize 值
  * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
  */
 public class AddHeadRecyclerViewActivity extends AppCompatActivity {
@@ -34,9 +35,15 @@ public class AddHeadRecyclerViewActivity extends AppCompatActivity {
             @Override
             public int getSpanSize(int position) {
                 if (position == 0 || position == 1) {
-                    // 当position == 0或者position == 1时返回的每个Item占两列,之前设置的最大列数为3,所以在显示第二个Item的时候不够了,就会自动显示在第二行
+                    // 当position == 0或者position == 1时返回的每个Item占两列，因为最大列数为3，所以在显示第二
+                    // 个Item的时候不够了,就会自动显示在第二行
+                    return 2;
+                } else if (position == 6) { // 第 6 个位置占 3 列
+                    return 3;
+                } else if (position > 0 && position % 10 == 0) { // 大于 0 且取余 10 的占 2 列
                     return 2;
                 }
+
                 // 此处返回的是每个Item所占的列数,最大不超过设置的最大的列数
                 return 1;
             }
@@ -44,7 +51,6 @@ public class AddHeadRecyclerViewActivity extends AppCompatActivity {
 
         // 设置布局管理器
         recyclerView.setLayoutManager(manager);
-
         // 设置适配器
         recyclerView.setAdapter(new MyAdapter());
     }
@@ -64,7 +70,7 @@ public class AddHeadRecyclerViewActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 9;
+            return 100;
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {

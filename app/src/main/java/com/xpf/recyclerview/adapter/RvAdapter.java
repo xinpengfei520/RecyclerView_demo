@@ -32,7 +32,6 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
     // 创建ViewHolder,加载对应的布局文件
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         MyViewHolder holder = new MyViewHolder(mInflater.inflate(R.layout.item_view, parent, false));
         return holder;
     }
@@ -41,7 +40,6 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.textView.setText(mDatas.get(position));
-
         // 设置点击事件
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override

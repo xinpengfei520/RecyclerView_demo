@@ -12,8 +12,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
 import com.xpf.recyclerview.activity.LinearLayoutActivity;
 import com.xpf.recyclerview.activity.StaggeredGridLayoutActivity;
+import com.xpf.recyclerview.activity.onViewAttachedToWindow;
 import com.xpf.recyclerview.adapter.ClickItemAdapter;
 import com.xpf.recyclerview.entity.ClickItem;
+import com.xpf.recyclerview.view.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
