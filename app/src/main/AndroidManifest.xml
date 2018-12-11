@@ -15,9 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.xpf.recyclerview.StaggeredGridLayoutActivity" />
-        <activity android:name="com.xpf.recyclerview.AddHeadRecyclerViewActivity" />
-        <activity android:name="com.xpf.recyclerview.LinearLayoutActivity" />
+        <activity android:name="com.xpf.recyclerview.activity.StaggeredGridLayoutActivity" />
+        <activity android:name="com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity" />
+        <activity android:name="com.xpf.recyclerview.activity.LinearLayoutActivity" />
         <activity android:name="com.xpf.recyclerview.onViewAttachedToWindow" />
     </application>
 

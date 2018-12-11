@@ -8,9 +8,14 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffaaff"
+        android:background="#33000000"
         android:gravity="center"
-        android:padding="8dp"
+        android:padding="16dp"
         android:text="美好的一天从coding开始" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ffffff" />
 
 </LinearLayout>

@@ -5,30 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.atguigu.recyclerview_demo.com.xpf.recyclerview.MainActivity">
+    tools:context="com.xpf.recyclerview.MainActivity">
 
     <Button
         android:id="@+id/btn_staggered"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="StaggeredGrideLayout" />
+        android:layout_marginTop="8dp"
+        android:text="StaggeredGrideLayout"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_addHead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="addheadrecyclerview" />
+        android:layout_marginTop="8dp"
+        android:text="addHeadRecyclerView"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LinearLayout" />
+        android:layout_marginTop="8dp"
+        android:text="LinearLayout"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_onAttach"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="onViewAttachedToWindow" />
+        android:layout_marginTop="8dp"
+        android:text="onViewAttachedToWindow"
+        android:textAllCaps="false" />
 
 </LinearLayout>

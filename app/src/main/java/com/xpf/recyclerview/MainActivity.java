@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
+import com.xpf.recyclerview.activity.LinearLayoutActivity;
+import com.xpf.recyclerview.activity.StaggeredGridLayoutActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn_staggered;

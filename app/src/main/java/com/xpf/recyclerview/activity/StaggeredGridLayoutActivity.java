@@ -1,4 +1,4 @@
-package com.xpf.recyclerview;
+package com.xpf.recyclerview.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.xpf.recyclerview.DividerItemDecoration;
+import com.xpf.recyclerview.R;
+import com.xpf.recyclerview.adapter.RvAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

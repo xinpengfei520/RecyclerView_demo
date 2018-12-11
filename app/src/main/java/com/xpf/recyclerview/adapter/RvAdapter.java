@@ -1,4 +1,4 @@
-package com.xpf.recyclerview;
+package com.xpf.recyclerview.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.xpf.recyclerview.R;
 
 import java.util.List;
 

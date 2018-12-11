@@ -1,4 +1,4 @@
-package com.xpf.recyclerview;
+package com.xpf.recyclerview.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.xpf.recyclerview.R;
 
 // RecyclerView的GridLayoutManager加头
 public class AddHeadRecyclerViewActivity extends AppCompatActivity {
