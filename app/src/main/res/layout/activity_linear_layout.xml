@@ -4,7 +4,7 @@
     android:id="@+id/activity_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.atguigu.recyclerview_demo.LinearLayoutActivity">
+    tools:context="com.atguigu.recyclerview_demo.com.xpf.recyclerview.LinearLayoutActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

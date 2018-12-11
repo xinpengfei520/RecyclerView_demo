@@ -1,4 +1,4 @@
-package com.atguigu.recyclerview_demo;
+package com.xpf.recyclerview;
 
 import android.content.Intent;
 import android.os.Bundle;

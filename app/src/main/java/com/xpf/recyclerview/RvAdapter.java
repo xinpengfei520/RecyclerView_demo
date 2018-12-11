@@ -1,4 +1,4 @@
-package com.atguigu.recyclerview_demo;
+package com.xpf.recyclerview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

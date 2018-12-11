@@ -1,4 +1,4 @@
-package com.atguigu.recyclerview_demo;
+package com.xpf.recyclerview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
