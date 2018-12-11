@@ -2,7 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
     android:padding="16dp">
 
     <ImageView
@@ -15,7 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:text="关注「IT大飞说」，\n一个不只会敲代码的码农！"
+        android:lineSpacingExtra="8dp"
+        android:text="关注「IT大飞说」，\n一个不只会敲代码的码农！\nPs:这是一个HeaderView"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/ivQrCode"
         app:layout_constraintLeft_toRightOf="@id/ivQrCode"
