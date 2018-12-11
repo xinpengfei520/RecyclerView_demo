@@ -3,52 +3,78 @@ package com.xpf.recyclerview;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
 import com.xpf.recyclerview.activity.LinearLayoutActivity;
 import com.xpf.recyclerview.activity.StaggeredGridLayoutActivity;
+import com.xpf.recyclerview.adapter.ClickItemAdapter;
+import com.xpf.recyclerview.entity.ClickItem;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
 
-    private Button btn_staggered;
-    private Button btn_addHead;
-    private Button btn_linearLayout;
-    private Button btn_onAttach;
+/**
+ * Created by xpf on 2016/11/27 :)
+ * Function:主页面
+ * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
+ */
+public class MainActivity extends AppCompatActivity {
+
+    private static final Class<?>[] ACTIVITY = {
+            LinearLayoutActivity.class, StaggeredGridLayoutActivity.class,
+            AddHeadRecyclerViewActivity.class, onViewAttachedToWindow.class};
+
+    private static final String[] TITLE = {
+            "LinearLayoutActivity", "StaggeredGridLayoutActivity",
+            "AddHeadRecyclerViewActivity", "onViewAttachedToWindow"};
+
+    private RecyclerView mRecyclerView;
+
+    private List<ClickItem> mItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btn_staggered = (Button) findViewById(R.id.btn_staggered);
-        btn_addHead = (Button) findViewById(R.id.btn_addHead);
-        btn_linearLayout = (Button) findViewById(R.id.btn_linearLayout);
-        btn_onAttach = (Button) findViewById(R.id.btn_onAttach);
-
-        btn_staggered.setOnClickListener(this);
-        btn_addHead.setOnClickListener(this);
-        btn_linearLayout.setOnClickListener(this);
-        btn_onAttach.setOnClickListener(this);
+        initView();
+        initData();
+        setAdapter();
     }
 
+    private void initView() {
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+    }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_staggered:
-                startActivity(new Intent(MainActivity.this, StaggeredGridLayoutActivity.class));
-                break;
-            case R.id.btn_addHead:
-                startActivity(new Intent(MainActivity.this, AddHeadRecyclerViewActivity.class));
-                break;
-            case R.id.btn_linearLayout:
-                startActivity(new Intent(MainActivity.this, LinearLayoutActivity.class));
-                break;
-            case R.id.btn_onAttach:
-                startActivity(new Intent(MainActivity.this, onViewAttachedToWindow.class));
-                break;
+    private void initData() {
+        mItemList = new ArrayList<>();
+        for (int i = 0; i < TITLE.length; i++) {
+            ClickItem item = new ClickItem();
+            item.setTitle(TITLE[i]);
+            item.setActivity(ACTIVITY[i]);
+            mItemList.add(item);
         }
+    }
+
+    private void setAdapter() {
+        BaseQuickAdapter adapter = new ClickItemAdapter(R.layout.item_textview, mItemList);
+        adapter.openLoadAnimation();
+        View header = getLayoutInflater().inflate(R.layout.header_view, (ViewGroup) mRecyclerView.getParent(), false);
+        adapter.addHeaderView(header);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(MainActivity.this, ACTIVITY[position]);
+                startActivity(intent);
+            }
+        });
+
+        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
     }
 }

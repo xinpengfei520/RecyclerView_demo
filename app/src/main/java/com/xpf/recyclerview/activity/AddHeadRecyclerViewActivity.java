@@ -10,7 +10,11 @@ import android.view.ViewGroup;
 
 import com.xpf.recyclerview.R;
 
-// RecyclerView的GridLayoutManager加头
+/**
+ * Created by xpf on 2016/11/27 :)
+ * Function:RecyclerView的GridLayoutManager加头
+ * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
+ */
 public class AddHeadRecyclerViewActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;

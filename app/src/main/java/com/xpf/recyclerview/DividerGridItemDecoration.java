@@ -13,7 +13,9 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 /**
- * 提供设置RecyclerView的Item之间的分割线(自定义)
+ * Created by xpf on 2016/11/27 :)
+ * Function:提供设置RecyclerView的Item之间的分割线(自定义)
+ * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
  */
 public class DividerGridItemDecoration extends RecyclerView.ItemDecoration {
 

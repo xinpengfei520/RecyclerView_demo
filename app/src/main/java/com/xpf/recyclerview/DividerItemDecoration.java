@@ -1,5 +1,6 @@
 package com.xpf.recyclerview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -11,10 +12,13 @@ import android.util.Log;
 import android.view.View;
 
 /**
- * This class is from the v7 samples of the Android SDK. It's not by me!
+ * Created by xpf on 2016/11/27 :)
+ * Function:This class is from the v7 samples of the Android SDK. It's not by me!
  * 设置RecyclerView的Item之间的分割线(系统自带)
  * 继承RecyclerView.ItemDecoration(抽象类)
+ * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
  */
+@SuppressLint("DuplicateDivider")
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private static final int[] ATTRS = new int[]{android.R.attr.listDivider};

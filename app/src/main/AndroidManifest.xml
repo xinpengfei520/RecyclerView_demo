@@ -8,17 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.xpf.recyclerview.MainActivity">
+        <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.xpf.recyclerview.activity.StaggeredGridLayoutActivity" />
-        <activity android:name="com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity" />
-        <activity android:name="com.xpf.recyclerview.activity.LinearLayoutActivity" />
-        <activity android:name="com.xpf.recyclerview.onViewAttachedToWindow" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.StaggeredGridLayoutActivity" />
+        <activity android:name=".activity.AddHeadRecyclerViewActivity" />
+        <activity android:name=".activity.LinearLayoutActivity" />
+        <activity android:name=".onViewAttachedToWindow" />
     </application>
 
 </manifest>

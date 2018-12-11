@@ -14,10 +14,9 @@ import java.util.List;
 
 /**
  * Created by xpf on 2016/11/27 :)
- * Wechat:18091383534
  * Function:RecyclerView的适配器
+ * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
  */
-
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
 
     private Context mContext;

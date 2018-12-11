@@ -7,36 +7,9 @@
     android:orientation="vertical"
     tools:context="com.xpf.recyclerview.MainActivity">
 
-    <Button
-        android:id="@+id/btn_staggered"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="StaggeredGrideLayout"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_addHead"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="addHeadRecyclerView"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="LinearLayout"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_onAttach"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="onViewAttachedToWindow"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

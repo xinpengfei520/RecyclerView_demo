@@ -8,7 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-// RecyclerView的StaggeredGridLayoutManager加头
+/**
+ * Created by xpf on 2016/11/27 :)
+ * Function:RecyclerView的StaggeredGridLayoutManager加头
+ * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
+ */
 public class onViewAttachedToWindow extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -43,7 +47,7 @@ public class onViewAttachedToWindow extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 30 ;
+            return 30;
         }
 
         // 当每个item将要显示的时候都会调用此方法

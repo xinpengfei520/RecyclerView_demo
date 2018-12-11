@@ -15,6 +15,11 @@ import com.xpf.recyclerview.adapter.RvAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by xpf on 2016/11/27 :)
+ * Function:瀑布流效果
+ * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
+ */
 public class StaggeredGridLayoutActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
