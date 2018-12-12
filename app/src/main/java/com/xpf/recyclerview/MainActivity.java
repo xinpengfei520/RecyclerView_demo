@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
 import com.xpf.recyclerview.activity.LinearLayoutActivity;
+import com.xpf.recyclerview.activity.MultiItemActivity;
 import com.xpf.recyclerview.activity.StaggeredGridLayoutActivity;
 import com.xpf.recyclerview.activity.onViewAttachedToWindow;
 import com.xpf.recyclerview.adapter.ClickItemAdapter;
@@ -29,11 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
     private static final Class<?>[] ACTIVITY = {
             LinearLayoutActivity.class, StaggeredGridLayoutActivity.class,
-            AddHeadRecyclerViewActivity.class, onViewAttachedToWindow.class};
+            AddHeadRecyclerViewActivity.class, onViewAttachedToWindow.class,
+            MultiItemActivity.class};
 
     private static final String[] TITLE = {
             "LinearLayoutActivity", "StaggeredGridLayoutActivity",
-            "AddHeadRecyclerViewActivity", "onViewAttachedToWindow"};
+            "AddHeadRecyclerViewActivity", "onViewAttachedToWindow", "MultiItemActivity"};
 
     private RecyclerView mRecyclerView;
 
