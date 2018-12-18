@@ -26,7 +26,7 @@ public class NameContentItemProvider extends BaseItemProvider<MultipleEntity, Ba
     @Override
     public void convert(BaseViewHolder helper, MultipleEntity data, int position) {
         Object object = data.getT();
-        if (data.getT() instanceof ThirdTypeBean) {
+        if (object instanceof ThirdTypeBean) {
             ThirdTypeBean bean = (ThirdTypeBean) object;
             helper.setText(R.id.tvName, bean.getName());
             helper.setText(R.id.tvContent, bean.getContent());

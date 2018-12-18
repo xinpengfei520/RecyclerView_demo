@@ -26,7 +26,7 @@ public class NameItemProvider extends BaseItemProvider<MultipleEntity, BaseViewH
     @Override
     public void convert(BaseViewHolder helper, MultipleEntity data, int position) {
         Object object = data.getT();
-        if (data.getT() instanceof FirstTypeBean) {
+        if (object instanceof FirstTypeBean) {
             FirstTypeBean bean = (FirstTypeBean) object;
             helper.setText(R.id.textView, bean.getName());
         }

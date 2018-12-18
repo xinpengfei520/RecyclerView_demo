@@ -8,12 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.MultipleItemAdapter;
-import com.xpf.recyclerview.entity.FirstTypeBean;
+import com.xpf.recyclerview.data.DataServer;
 import com.xpf.recyclerview.entity.MultipleEntity;
-import com.xpf.recyclerview.entity.SecondTypeBean;
-import com.xpf.recyclerview.entity.ThirdTypeBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,15 +20,10 @@ import java.util.List;
  */
 public class MultiItemActivity extends AppCompatActivity {
 
-    private static final String NAME = "「IT大飞说」";
-    private static final int IMG_ID = R.drawable.myqrcode;
-    private static final String CONTENT = "魔都某非著名互联网创业公司码农，一个狂热的技术人！";
-
     private static final int SPAN_SIZE1 = 1;
     private static final int SPAN_SIZE3 = 3;
     private static final int SPAN_SIZE4 = 4;
 
-    private List<MultipleEntity> mList;
     private RecyclerView mRecyclerView;
 
     @Override
@@ -39,17 +31,17 @@ public class MultiItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multi_item);
         initViews();
-        initData();
         setAdapter();
     }
 
     private void setAdapter() {
-        MultipleItemAdapter multipleItemAdapter = new MultipleItemAdapter(mList);
+        final List<MultipleEntity> data = DataServer.getData();
+        MultipleItemAdapter multipleItemAdapter = new MultipleItemAdapter(data);
         multipleItemAdapter.setSpanSizeLookup(new BaseQuickAdapter.SpanSizeLookup() {
             @Override
             public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
                 int spanSize = 0;
-                switch (mList.get(position).getType()) {
+                switch (data.get(position).getType()) {
                     case MultipleEntity.NAME:
                         spanSize = SPAN_SIZE1;
                         break;
@@ -76,20 +68,4 @@ public class MultiItemActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(manager);
     }
 
-    /**
-     * 制造一些假数据，实际一般都是从网络获取
-     */
-    private void initData() {
-        mList = new ArrayList<>();
-        for (int i = 0; i <= 5; i++) {
-            FirstTypeBean firstTypeBean = new FirstTypeBean(NAME);
-            mList.add(new MultipleEntity<>(MultipleEntity.NAME, firstTypeBean));
-
-            SecondTypeBean secondTypeBean = new SecondTypeBean(NAME, IMG_ID);
-            mList.add(new MultipleEntity<>(MultipleEntity.NAME_IMG, secondTypeBean));
-
-            ThirdTypeBean thirdTypeBean = new ThirdTypeBean(NAME, CONTENT);
-            mList.add(new MultipleEntity<>(MultipleEntity.NAME_CONTENT, thirdTypeBean));
-        }
-    }
 }

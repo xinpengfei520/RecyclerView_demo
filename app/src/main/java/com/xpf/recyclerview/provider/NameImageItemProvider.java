@@ -26,7 +26,7 @@ public class NameImageItemProvider extends BaseItemProvider<MultipleEntity, Base
     @Override
     public void convert(BaseViewHolder helper, MultipleEntity data, int position) {
         Object object = data.getT();
-        if (data.getT() instanceof SecondTypeBean) {
+        if (object instanceof SecondTypeBean) {
             SecondTypeBean bean = (SecondTypeBean) object;
             helper.setText(R.id.textView, bean.getName());
             helper.setImageResource(R.id.imageView, bean.getImgId());

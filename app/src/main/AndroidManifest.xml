@@ -22,7 +22,8 @@
         <activity android:name=".activity.AddHeadRecyclerViewActivity" />
         <activity android:name=".activity.LinearLayoutActivity" />
         <activity android:name=".activity.onViewAttachedToWindow" />
-        <activity android:name=".activity.MultiItemActivity"></activity>
+        <activity android:name=".activity.MultiItemActivity" />
+        <activity android:name=".activity.MultipleItemQuickActivity"/>
     </application>
 
 </manifest>
