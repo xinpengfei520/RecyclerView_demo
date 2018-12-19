@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:elevation="4dp"
+    android:background="@android:color/white"
     android:gravity="center"
-    android:padding="8dp"
+    android:padding="16dp"
     android:text="A"
-    android:textSize="20sp" />
+    android:textColor="#333333"
+    android:textSize="20sp"
+    android:textStyle="bold" />

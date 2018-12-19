@@ -69,9 +69,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void setAdapter() {
         BaseQuickAdapter adapter = new ClickItemAdapter(R.layout.item_textview, mItemList);
+        // 开启加载动画
         adapter.openLoadAnimation();
+        // 添加头部布局
         View header = getLayoutInflater().inflate(R.layout.header_view, (ViewGroup) mRecyclerView.getParent(), false);
         adapter.addHeaderView(header);
+        // 添加尾部布局
+        View footer = getLayoutInflater().inflate(R.layout.footer_view, (ViewGroup) mRecyclerView.getParent(), false);
+        adapter.addFooterView(footer);
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
