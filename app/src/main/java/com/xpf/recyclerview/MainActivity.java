@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         // 添加尾部布局
         View footer = getLayoutInflater().inflate(R.layout.footer_view, (ViewGroup) mRecyclerView.getParent(), false);
         adapter.addFooterView(footer);
+        // 注意：头和尾都可以添加多个，且尾可以添加到指定的下标位置
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

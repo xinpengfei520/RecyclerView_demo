@@ -44,8 +44,12 @@ public class DataServer {
     }
 
     public static List<MultipleQuickEntity> getMultipleItemData() {
+        return getMultipleItemData(10);
+    }
+
+    public static List<MultipleQuickEntity> getMultipleItemData(int size) {
         List<MultipleQuickEntity> list = new ArrayList<>();
-        for (int i = 0; i <= 20; i++) {
+        for (int i = 0; i <= size; i++) {
             FirstTypeBean firstTypeBean = new FirstTypeBean(NAME);
             list.add(new MultipleQuickEntity<>(MultipleQuickEntity.NAME, firstTypeBean, MultipleQuickEntity.SPAN_SIZE1));
 
