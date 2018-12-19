@@ -28,10 +28,15 @@ public class MultipleItemQuickActivity extends AppCompatActivity {
         setContentView(R.layout.activity_multiple_item_quick);
         mRecyclerView = findViewById(R.id.recyclerView);
 
-        final List<MultipleQuickEntity> data = DataServer.getMultipleItemData();
-        final MultipleItemQuickAdapter multipleItemAdapter = new MultipleItemQuickAdapter(data);
         final GridLayoutManager manager = new GridLayoutManager(this, 4);
         mRecyclerView.setLayoutManager(manager);
+
+        final List<MultipleQuickEntity> data = DataServer.getMultipleItemData();
+        final MultipleItemQuickAdapter multipleItemAdapter = new MultipleItemQuickAdapter(data);
+        // 设置加载动画，有 5 种动画效果可选（ALPHAIN、SCALEIN、SLIDEIN_BOTTOM、SLIDEIN_LEFT、SLIDEIN_RIGHT）
+        multipleItemAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
+        // 设置是否只有第一次加载时显示动画
+        multipleItemAdapter.isFirstOnly(false);
         multipleItemAdapter.setSpanSizeLookup(new BaseQuickAdapter.SpanSizeLookup() {
             @Override
             public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {

@@ -29,7 +29,7 @@ public class DataServer {
      */
     public static List<MultipleEntity> getData() {
         List<MultipleEntity> list = new ArrayList<>();
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i <= 20; i++) {
             FirstTypeBean firstTypeBean = new FirstTypeBean(NAME);
             list.add(new MultipleEntity<>(MultipleEntity.NAME, firstTypeBean));
 
@@ -45,7 +45,7 @@ public class DataServer {
 
     public static List<MultipleQuickEntity> getMultipleItemData() {
         List<MultipleQuickEntity> list = new ArrayList<>();
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i <= 20; i++) {
             FirstTypeBean firstTypeBean = new FirstTypeBean(NAME);
             list.add(new MultipleQuickEntity<>(MultipleQuickEntity.NAME, firstTypeBean, MultipleQuickEntity.SPAN_SIZE1));
 

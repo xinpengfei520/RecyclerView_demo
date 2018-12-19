@@ -37,6 +37,10 @@ public class MultiItemActivity extends AppCompatActivity {
     private void setAdapter() {
         final List<MultipleEntity> data = DataServer.getData();
         MultipleItemAdapter multipleItemAdapter = new MultipleItemAdapter(data);
+        // 设置加载动画，有 5 种动画效果可选（ALPHAIN、SCALEIN、SLIDEIN_BOTTOM、SLIDEIN_LEFT、SLIDEIN_RIGHT）
+        multipleItemAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        // 设置是否只有第一次加载时显示动画
+        multipleItemAdapter.isFirstOnly(false);
         multipleItemAdapter.setSpanSizeLookup(new BaseQuickAdapter.SpanSizeLookup() {
             @Override
             public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
