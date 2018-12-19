@@ -68,4 +68,12 @@ public class DataServer {
 
         return list;
     }
+
+    public static List<String> getLinearData(int size) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            list.add("美好的一天从coding开始+" + i);
+        }
+        return list;
+    }
 }
