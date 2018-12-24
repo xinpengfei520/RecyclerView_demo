@@ -3,8 +3,10 @@ package com.xpf.recyclerview.data;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.entity.FirstTypeBean;
 import com.xpf.recyclerview.entity.FourTypeBean;
+import com.xpf.recyclerview.entity.Movie;
 import com.xpf.recyclerview.entity.MultipleEntity;
 import com.xpf.recyclerview.entity.MultipleQuickEntity;
+import com.xpf.recyclerview.entity.MySection;
 import com.xpf.recyclerview.entity.SecondTypeBean;
 import com.xpf.recyclerview.entity.ThirdTypeBean;
 
@@ -23,6 +25,7 @@ public class DataServer {
     private static final int IMG_ID = R.drawable.myqrcode;
     private static final int LOGO_ID = R.mipmap.ic_launcher;
     private static final String CONTENT = "魔都某非著名互联网创业公司码农，一个狂热的技术人！";
+    private static final String COVER_URL = "https://avatars1.githubusercontent.com/u/7455269?s=400&u=34912fd062e08efa008267702ae860a0c88b1aee&v=4";
 
     /**
      * 制造一些假数据，实际一般都是从网络获取
@@ -74,6 +77,29 @@ public class DataServer {
         for (int i = 0; i < size; i++) {
             list.add("美好的一天从coding开始+" + i);
         }
+        return list;
+    }
+
+    public static List<MySection> getMySectionData() {
+        List<MySection> list = new ArrayList<>();
+        list.add(new MySection(true, "Section 1", true));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(true, "Section 2", false));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(true, "Section 3", false));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(true, "Section 4", false));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(true, "Section 5", false));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
+        list.add(new MySection(new Movie(COVER_URL, NAME)));
         return list;
     }
 }

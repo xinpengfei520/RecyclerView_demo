@@ -13,6 +13,7 @@ import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
 import com.xpf.recyclerview.activity.LinearLayoutActivity;
 import com.xpf.recyclerview.activity.MultiItemActivity;
 import com.xpf.recyclerview.activity.MultipleItemQuickActivity;
+import com.xpf.recyclerview.activity.SectionActivity;
 import com.xpf.recyclerview.activity.StaggeredGridLayoutActivity;
 import com.xpf.recyclerview.activity.onViewAttachedToWindow;
 import com.xpf.recyclerview.adapter.ClickItemAdapter;
@@ -30,17 +31,14 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final Class<?>[] ACTIVITY = {
-            LinearLayoutActivity.class, StaggeredGridLayoutActivity.class,
-            AddHeadRecyclerViewActivity.class, onViewAttachedToWindow.class,
-            MultiItemActivity.class, MultipleItemQuickActivity.class};
+            LinearLayoutActivity.class, StaggeredGridLayoutActivity.class, AddHeadRecyclerViewActivity.class,
+            onViewAttachedToWindow.class, MultiItemActivity.class, MultipleItemQuickActivity.class, SectionActivity.class};
 
     private static final String[] TITLE = {
-            "LinearLayoutActivity", "StaggeredGridLayoutActivity",
-            "AddHeadRecyclerViewActivity", "onViewAttachedToWindow",
-            "MultiItemActivity", "MultipleItemQuickActivity"};
+            "LinearLayoutActivity", "StaggeredGridLayoutActivity", "AddHeadRecyclerViewActivity",
+            "onViewAttachedToWindow", "MultiItemActivity", "MultipleItemQuickActivity", "SectionActivity"};
 
     private RecyclerView mRecyclerView;
-
     private List<ClickItem> mItemList;
 
     @Override

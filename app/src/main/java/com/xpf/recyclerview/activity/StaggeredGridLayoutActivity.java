@@ -23,7 +23,7 @@ import java.util.List;
 public class StaggeredGridLayoutActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private List<String> mDatas; // 集合数据
+    private List<String> mData; // 集合数据
     private RvAdapter mAdapter;  // 适配器
 
     @Override
@@ -38,7 +38,7 @@ public class StaggeredGridLayoutActivity extends AppCompatActivity {
         // 设置布局管理器,控制其要显示的样式(瀑布流垂直方向为4列,如果是水平方向就是4行)
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
 
-        mAdapter = new RvAdapter(this, mDatas);
+        mAdapter = new RvAdapter(this, mData);
 
         mRecyclerView.setAdapter(mAdapter);
 
@@ -50,9 +50,9 @@ public class StaggeredGridLayoutActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        mDatas = new ArrayList<>();
+        mData = new ArrayList<>();
         for (int i = 'A'; i <= 'Z'; i++) {
-            mDatas.add("" + (char) i);
+            mData.add("" + (char) i);
         }
     }
 
