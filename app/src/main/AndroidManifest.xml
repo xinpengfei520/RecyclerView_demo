@@ -27,7 +27,8 @@
         <activity android:name=".activity.onViewAttachedToWindow" />
         <activity android:name=".activity.MultiItemActivity" />
         <activity android:name=".activity.MultipleItemQuickActivity" />
-        <activity android:name=".activity.SectionActivity"/>
+        <activity android:name=".activity.SectionActivity" />
+        <activity android:name=".activity.DragAndSwipeActivity"></activity>
     </application>
 
 </manifest>
