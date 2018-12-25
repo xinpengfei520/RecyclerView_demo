@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.SectionAdapter;
 import com.xpf.recyclerview.data.DataServer;
@@ -49,24 +47,16 @@ public class SectionActivity extends AppCompatActivity {
     private void setAdapter() {
         SectionAdapter sectionAdapter = new SectionAdapter(R.layout.item_section_content, R.layout.def_section_head, mData);
 
-        sectionAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                MySection mySection = mData.get(position);
-                if (mySection.isHeader) {
-                    Toast.makeText(SectionActivity.this, mySection.header, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(SectionActivity.this, mySection.t.getName(), Toast.LENGTH_SHORT).show();
-                }
+        sectionAdapter.setOnItemClickListener((adapter, view, position) -> {
+            MySection mySection = mData.get(position);
+            if (mySection.isHeader) {
+                Toast.makeText(SectionActivity.this, mySection.header, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(SectionActivity.this, mySection.t.getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
-        sectionAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
-            @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                Toast.makeText(SectionActivity.this, "onItemChildClick:" + position, Toast.LENGTH_SHORT).show();
-            }
-        });
+        sectionAdapter.setOnItemChildClickListener((adapter, view, position) -> Toast.makeText(SectionActivity.this, "onItemChildClick:" + position, Toast.LENGTH_SHORT).show());
 
         mRecyclerView.setAdapter(sectionAdapter);
     }

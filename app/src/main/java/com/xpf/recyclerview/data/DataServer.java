@@ -3,11 +3,13 @@ package com.xpf.recyclerview.data;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.entity.FirstTypeBean;
 import com.xpf.recyclerview.entity.FourTypeBean;
+import com.xpf.recyclerview.entity.ItemClickEntity;
 import com.xpf.recyclerview.entity.Movie;
 import com.xpf.recyclerview.entity.MultipleEntity;
 import com.xpf.recyclerview.entity.MultipleQuickEntity;
 import com.xpf.recyclerview.entity.MySection;
 import com.xpf.recyclerview.entity.SecondTypeBean;
+import com.xpf.recyclerview.entity.StatusEntity;
 import com.xpf.recyclerview.entity.ThirdTypeBean;
 
 import java.util.ArrayList;
@@ -100,6 +102,30 @@ public class DataServer {
         list.add(new MySection(true, "Section 5", false));
         list.add(new MySection(new Movie(COVER_URL, NAME)));
         list.add(new MySection(new Movie(COVER_URL, NAME)));
+        return list;
+    }
+
+    public static List<ItemClickEntity> getItemClickData() {
+        List<ItemClickEntity> data = new ArrayList<>();
+        data.add(new ItemClickEntity(ItemClickEntity.CLICK_ITEM_VIEW));
+        data.add(new ItemClickEntity(ItemClickEntity.CLICK_ITEM_CHILD_VIEW));
+        data.add(new ItemClickEntity(ItemClickEntity.LONG_CLICK_ITEM_VIEW));
+        data.add(new ItemClickEntity(ItemClickEntity.LONG_CLICK_ITEM_CHILD_VIEW));
+        data.add(new ItemClickEntity(ItemClickEntity.NEST_CLICK_ITEM_CHILD_VIEW));
+        return data;
+    }
+
+    public static List<StatusEntity> getStatusEntityData(int length) {
+        List<StatusEntity> list = new ArrayList<>();
+        for (int i = 0; i < length; i++) {
+            StatusEntity status = new StatusEntity();
+            status.setUserName("x-sir" + i);
+            status.setCreatedAt("18/25/" + i);
+            status.setResend(i % 2 == 0);
+            status.setUserAvatar("https://avatars1.githubusercontent.com/u/7455269?s=400&u=34912fd062e08efa008267702ae860a0c88b1aee&v=4");
+            status.setText("BaseRecyclerViewAdapterHelper https://www.x-sir.com");
+            list.add(status);
+        }
         return list;
     }
 }
