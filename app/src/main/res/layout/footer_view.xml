@@ -6,11 +6,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#e0e0e0"
+        android:background="#f0f0f0"
         android:gravity="center"
         android:padding="16dp"
-        android:text="----- 我也是有底线滴人！-----"
-        android:textColor="#ff0000"
-        android:textSize="16sp" />
+        android:text="------我也是有底线滴------"
+        android:textColor="#666666"
+        android:textSize="12sp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
 import com.xpf.recyclerview.activity.DragAndSwipeActivity;
+import com.xpf.recyclerview.activity.ExpandableActivity;
 import com.xpf.recyclerview.activity.ItemClickEventActivity;
 import com.xpf.recyclerview.activity.LinearLayoutActivity;
 import com.xpf.recyclerview.activity.MultiItemActivity;
@@ -35,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
     private static final Class<?>[] ACTIVITY = {
             LinearLayoutActivity.class, StaggeredGridLayoutActivity.class, AddHeadRecyclerViewActivity.class,
             onViewAttachedToWindow.class, MultiItemActivity.class, MultipleItemQuickActivity.class, SectionActivity.class,
-            DragAndSwipeActivity.class, ItemClickEventActivity.class};
+            DragAndSwipeActivity.class, ItemClickEventActivity.class, ExpandableActivity.class};
 
     private static final String[] TITLE = {
             "LinearLayoutActivity", "StaggeredGridLayoutActivity", "AddHeadRecyclerViewActivity",
             "onViewAttachedToWindow", "MultiItemActivity", "MultipleItemQuickActivity", "SectionActivity",
-            "DragAndSwipeActivity", "ItemClickEventActivity"};
+            "DragAndSwipeActivity", "ItemClickEventActivity", "ExpandableActivity"};
 
     private RecyclerView mRecyclerView;
     private List<ClickItem> mItemList;

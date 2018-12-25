@@ -30,7 +30,8 @@
         <activity android:name=".activity.MultipleItemQuickActivity" />
         <activity android:name=".activity.SectionActivity" />
         <activity android:name=".activity.DragAndSwipeActivity" />
-        <activity android:name=".activity.ItemClickEventActivity"></activity>
+        <activity android:name=".activity.ItemClickEventActivity" />
+        <activity android:name=".activity.ExpandableActivity"></activity>
     </application>
 
 </manifest>

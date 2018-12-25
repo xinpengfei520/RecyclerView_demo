@@ -5,6 +5,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="span_color">#00ddb6</color>
+    <color name="span_color2">#8000ddb6</color>
     <color name="white_bg">#FFFFFF</color>
+    <color name="white_bg80">#80FFFFFF</color>
     <color name="gray_color">#33000000</color>
 </resources>

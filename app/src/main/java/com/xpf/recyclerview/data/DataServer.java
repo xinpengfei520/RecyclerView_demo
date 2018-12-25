@@ -1,19 +1,24 @@
 package com.xpf.recyclerview.data;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.entity.FirstTypeBean;
 import com.xpf.recyclerview.entity.FourTypeBean;
 import com.xpf.recyclerview.entity.ItemClickEntity;
+import com.xpf.recyclerview.entity.Level0Item;
+import com.xpf.recyclerview.entity.Level1Item;
 import com.xpf.recyclerview.entity.Movie;
 import com.xpf.recyclerview.entity.MultipleEntity;
 import com.xpf.recyclerview.entity.MultipleQuickEntity;
 import com.xpf.recyclerview.entity.MySection;
+import com.xpf.recyclerview.entity.Person;
 import com.xpf.recyclerview.entity.SecondTypeBean;
 import com.xpf.recyclerview.entity.StatusEntity;
 import com.xpf.recyclerview.entity.ThirdTypeBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by x-sir on 2018/12/18 :)
@@ -127,5 +132,30 @@ public class DataServer {
             list.add(status);
         }
         return list;
+    }
+
+    public static ArrayList<MultiItemEntity> getExpandableData() {
+        int lv0Count = 9;
+        int lv1Count = 3;
+        int personCount = 5;
+
+        String[] nameList = {"Bob", "Andy", "Lily", "Brown", "Bruce"};
+        Random random = new Random();
+
+        ArrayList<MultiItemEntity> res = new ArrayList<>();
+        for (int i = 0; i < lv0Count; i++) {
+            Level0Item lv0 = new Level0Item("This is " + i + "th item in Level 0", "subtitle of " + i);
+            for (int j = 0; j < lv1Count; j++) {
+                Level1Item lv1 = new Level1Item("Level 1 item: " + j, "(no animation)");
+                for (int k = 0; k < personCount; k++) {
+                    lv1.addSubItem(new Person(nameList[k], random.nextInt(40)));
+                }
+                lv0.addSubItem(lv1);
+            }
+            res.add(lv0);
+        }
+        res.add(new Level0Item("This is " + lv0Count + "th item in Level 0", "subtitle of " + lv0Count));
+
+        return res;
     }
 }
