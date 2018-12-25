@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
+import com.xpf.recyclerview.activity.DataBindingActivity;
 import com.xpf.recyclerview.activity.DragAndSwipeActivity;
 import com.xpf.recyclerview.activity.ExpandableActivity;
 import com.xpf.recyclerview.activity.ItemClickEventActivity;
@@ -36,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
     private static final Class<?>[] ACTIVITY = {
             LinearLayoutActivity.class, StaggeredGridLayoutActivity.class, AddHeadRecyclerViewActivity.class,
             onViewAttachedToWindow.class, MultiItemActivity.class, MultipleItemQuickActivity.class, SectionActivity.class,
-            DragAndSwipeActivity.class, ItemClickEventActivity.class, ExpandableActivity.class};
+            DragAndSwipeActivity.class, ItemClickEventActivity.class, ExpandableActivity.class, DataBindingActivity.class};
 
     private static final String[] TITLE = {
             "LinearLayoutActivity", "StaggeredGridLayoutActivity", "AddHeadRecyclerViewActivity",
             "onViewAttachedToWindow", "MultiItemActivity", "MultipleItemQuickActivity", "SectionActivity",
-            "DragAndSwipeActivity", "ItemClickEventActivity", "ExpandableActivity"};
+            "DragAndSwipeActivity", "ItemClickEventActivity", "ExpandableActivity", "DataBindingActivity"};
 
     private RecyclerView mRecyclerView;
     private List<ClickItem> mItemList;
@@ -81,12 +82,9 @@ public class MainActivity extends AppCompatActivity {
         View footer = getLayoutInflater().inflate(R.layout.footer_view, (ViewGroup) mRecyclerView.getParent(), false);
         adapter.addFooterView(footer);
         // 注意：头和尾都可以添加多个，且尾可以添加到指定的下标位置
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent(MainActivity.this, ACTIVITY[position]);
-                startActivity(intent);
-            }
+        adapter.setOnItemClickListener((adapter1, view, position) -> {
+            Intent intent = new Intent(MainActivity.this, ACTIVITY[position]);
+            startActivity(intent);
         });
 
         mRecyclerView.setAdapter(adapter);

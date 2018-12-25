@@ -2,6 +2,7 @@ package com.xpf.recyclerview.data;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.xpf.recyclerview.R;
+import com.xpf.recyclerview.entity.Film;
 import com.xpf.recyclerview.entity.FirstTypeBean;
 import com.xpf.recyclerview.entity.FourTypeBean;
 import com.xpf.recyclerview.entity.ItemClickEntity;
@@ -157,5 +158,18 @@ public class DataServer {
         res.add(new Level0Item("This is " + lv0Count + "th item in Level 0", "subtitle of " + lv0Count));
 
         return res;
+    }
+
+    public static List<Film> getFilmData() {
+        ArrayList<Film> list = new ArrayList<>();
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            String name = "x-sir";
+            int price = random.nextInt(10) + 10;
+            int len = random.nextInt(80) + 60;
+            Film film = new Film(name, len, price, "He was one of Australia's most distinguished artistes");
+            list.add(film);
+        }
+        return list;
     }
 }
