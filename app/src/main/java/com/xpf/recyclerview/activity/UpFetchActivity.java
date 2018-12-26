@@ -13,7 +13,7 @@ import com.xpf.recyclerview.entity.Film;
 import java.util.List;
 
 /**
- * Created by xpf on 2018/12/11 :)
+ * Created by xpf on 2018/12/26 :)
  * Function:上拉加载更多数据，类似于微信消息向上滑查看更多历史的消息
  * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
  */

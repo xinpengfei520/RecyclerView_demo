@@ -45,7 +45,7 @@ public class SectionActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        SectionAdapter sectionAdapter = new SectionAdapter(R.layout.item_section_content, R.layout.def_section_head, mData);
+        SectionAdapter sectionAdapter = new SectionAdapter(R.layout.item_section_content, R.layout.item_section_header, mData);
 
         sectionAdapter.setOnItemClickListener((adapter, view, position) -> {
             MySection mySection = mData.get(position);

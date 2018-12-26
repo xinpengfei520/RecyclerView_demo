@@ -14,8 +14,10 @@ import com.xpf.recyclerview.entity.MultipleQuickEntity;
 import com.xpf.recyclerview.entity.MySection;
 import com.xpf.recyclerview.entity.Person;
 import com.xpf.recyclerview.entity.SecondTypeBean;
+import com.xpf.recyclerview.entity.SectionMultiItem;
 import com.xpf.recyclerview.entity.StatusEntity;
 import com.xpf.recyclerview.entity.ThirdTypeBean;
+import com.xpf.recyclerview.entity.Video;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -170,6 +172,35 @@ public class DataServer {
             Film film = new Film(name, len, price, "He was one of Australia's most distinguished artistes");
             list.add(film);
         }
+        return list;
+    }
+
+    public static List<SectionMultiItem> getSectionMultiData() {
+        List<SectionMultiItem> list = new ArrayList<>();
+        Video video = new Video(COVER_URL, NAME);
+
+        // add section data
+        list.add(new SectionMultiItem(true, "Section 1", true));
+        // add multiple type item data ---start---
+        list.add(new SectionMultiItem(SectionMultiItem.TEXT, new Video(COVER_URL, "video_id_0")));
+        list.add(new SectionMultiItem(SectionMultiItem.TEXT, new Video(COVER_URL, "video_id_1")));
+        list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, new Video(COVER_URL, "video_id_2")));
+        // ---end---
+
+        list.add(new SectionMultiItem(true, "Section 2", false));
+        list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
+        list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
+        list.add(new SectionMultiItem(SectionMultiItem.TEXT, video));
+        list.add(new SectionMultiItem(SectionMultiItem.TEXT, video));
+        list.add(new SectionMultiItem(true, "Section 3", false));
+        list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
+        list.add(new SectionMultiItem(true, "Section 4", false));
+        list.add(new SectionMultiItem(SectionMultiItem.TEXT, video));
+        list.add(new SectionMultiItem(true, "Section 5", false));
+        list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
+        list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
+        list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
+
         return list;
     }
 }

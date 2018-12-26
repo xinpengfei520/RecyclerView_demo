@@ -18,6 +18,7 @@ import com.xpf.recyclerview.activity.LinearLayoutActivity;
 import com.xpf.recyclerview.activity.MultiItemActivity;
 import com.xpf.recyclerview.activity.MultipleItemQuickActivity;
 import com.xpf.recyclerview.activity.SectionActivity;
+import com.xpf.recyclerview.activity.SectionMultiItemActivity;
 import com.xpf.recyclerview.activity.StaggeredGridLayoutActivity;
 import com.xpf.recyclerview.activity.UpFetchActivity;
 import com.xpf.recyclerview.activity.onViewAttachedToWindow;
@@ -39,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
             LinearLayoutActivity.class, StaggeredGridLayoutActivity.class, AddHeadRecyclerViewActivity.class,
             onViewAttachedToWindow.class, MultiItemActivity.class, MultipleItemQuickActivity.class, SectionActivity.class,
             DragAndSwipeActivity.class, ItemClickEventActivity.class, ExpandableActivity.class, DataBindingActivity.class,
-            UpFetchActivity.class};
+            UpFetchActivity.class, SectionMultiItemActivity.class};
 
     private static final String[] TITLE = {
             "LinearLayoutActivity", "StaggeredGridLayoutActivity", "AddHeadRecyclerViewActivity",
             "onViewAttachedToWindow", "MultiItemActivity", "MultipleItemQuickActivity", "SectionActivity",
             "DragAndSwipeActivity", "ItemClickEventActivity", "ExpandableActivity", "DataBindingActivity",
-            "UpFetchActivity"};
+            "UpFetchActivity", "SectionMultiItemActivity"};
 
     private RecyclerView mRecyclerView;
     private List<ClickItem> mItemList;
