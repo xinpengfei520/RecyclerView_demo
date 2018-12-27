@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
+import com.xpf.recyclerview.activity.CustomDragSwipeActivity;
 import com.xpf.recyclerview.activity.DataBindingActivity;
 import com.xpf.recyclerview.activity.DragAndSwipeActivity;
 import com.xpf.recyclerview.activity.ExpandableActivity;
@@ -23,8 +24,8 @@ import com.xpf.recyclerview.activity.StaggeredGridLayoutActivity;
 import com.xpf.recyclerview.activity.UpFetchActivity;
 import com.xpf.recyclerview.activity.onViewAttachedToWindow;
 import com.xpf.recyclerview.adapter.ClickItemAdapter;
+import com.xpf.recyclerview.decoration.DividerItemDecoration;
 import com.xpf.recyclerview.entity.ClickItem;
-import com.xpf.recyclerview.view.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
             LinearLayoutActivity.class, StaggeredGridLayoutActivity.class, AddHeadRecyclerViewActivity.class,
             onViewAttachedToWindow.class, MultiItemActivity.class, MultipleItemQuickActivity.class, SectionActivity.class,
             DragAndSwipeActivity.class, ItemClickEventActivity.class, ExpandableActivity.class, DataBindingActivity.class,
-            UpFetchActivity.class, SectionMultiItemActivity.class};
+            UpFetchActivity.class, SectionMultiItemActivity.class, CustomDragSwipeActivity.class};
 
     private static final String[] TITLE = {
             "LinearLayoutActivity", "StaggeredGridLayoutActivity", "AddHeadRecyclerViewActivity",
             "onViewAttachedToWindow", "MultiItemActivity", "MultipleItemQuickActivity", "SectionActivity",
             "DragAndSwipeActivity", "ItemClickEventActivity", "ExpandableActivity", "DataBindingActivity",
-            "UpFetchActivity", "SectionMultiItemActivity"};
+            "UpFetchActivity", "SectionMultiItemActivity", "CustomDragSwipeActivity"};
 
     private RecyclerView mRecyclerView;
     private List<ClickItem> mItemList;

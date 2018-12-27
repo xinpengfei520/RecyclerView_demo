@@ -1,7 +1,9 @@
 package com.xpf.recyclerview.data;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.xpf.recyclerview.MyApplication;
 import com.xpf.recyclerview.R;
+import com.xpf.recyclerview.entity.DragItem;
 import com.xpf.recyclerview.entity.Film;
 import com.xpf.recyclerview.entity.FirstTypeBean;
 import com.xpf.recyclerview.entity.FourTypeBean;
@@ -201,6 +203,18 @@ public class DataServer {
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
 
+        return list;
+    }
+
+    public static ArrayList<DragItem> getDragItemData() {
+        ArrayList<DragItem> list = new ArrayList<>();
+        String[] titles = MyApplication.getContext().getResources().getStringArray(R.array.title_array);
+        for (int i = 0; i < titles.length; i++) {
+            DragItem item = new DragItem();
+            item.index = i + 1;
+            item.title = titles[i];
+            list.add(item);
+        }
         return list;
     }
 }

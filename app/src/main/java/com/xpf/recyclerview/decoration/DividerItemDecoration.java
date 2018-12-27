@@ -1,4 +1,4 @@
-package com.xpf.recyclerview.view;
+package com.xpf.recyclerview.decoration;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

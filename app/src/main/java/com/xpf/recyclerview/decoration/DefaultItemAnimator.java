@@ -1,4 +1,4 @@
-package me.xiazdong.recyclerviewdemo.demo1;
+package com.xpf.recyclerview.decoration;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator;
 
 /**
- * Created by damonxia on 16/10/18.
+ * Created by xpf on 2016/12/27 :)
+ * Function:DefaultItemAnimator
+ * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
  */
 public class DefaultItemAnimator extends BaseItemAnimator {
 

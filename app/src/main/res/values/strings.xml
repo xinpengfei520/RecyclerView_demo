@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">RecyclerViewDemo</string>
+
+    <string-array name="title_array">
+        <item>ABC</item>
+        <item>DEF</item>
+        <item>GHI</item>
+        <item>JKL</item>
+        <item>MNO</item>
+        <item>PQR</item>
+        <item>STU</item>
+        <item>VWX</item>
+        <item>XYZ</item>
+        <item>ABC</item>
+        <item>DEF</item>
+        <item>GHI</item>
+        <item>JKL</item>
+        <item>MNO</item>
+        <item>PQR</item>
+        <item>STU</item>
+        <item>VWX</item>
+        <item>XYZ</item>
+        <item>我可以左滑删除哦</item>
+        <item>我可以右滑删除哦</item>
+    </string-array>
 </resources>

@@ -34,7 +34,8 @@
         <activity android:name=".activity.ExpandableActivity" />
         <activity android:name=".activity.DataBindingActivity" />
         <activity android:name=".activity.UpFetchActivity" />
-        <activity android:name=".activity.SectionMultiItemActivity"></activity>
+        <activity android:name=".activity.SectionMultiItemActivity" />
+        <activity android:name=".activity.CustomDragSwipeActivity"></activity>
     </application>
 
 </manifest>

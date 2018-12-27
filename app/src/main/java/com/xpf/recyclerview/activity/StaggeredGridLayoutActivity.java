@@ -8,7 +8,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.xpf.recyclerview.view.DividerItemDecoration;
+import com.xpf.recyclerview.decoration.DividerItemDecoration;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.RvAdapter;
 
