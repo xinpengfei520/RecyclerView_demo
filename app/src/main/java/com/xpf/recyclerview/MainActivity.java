@@ -14,6 +14,7 @@ import com.xpf.recyclerview.activity.CustomDragSwipeActivity;
 import com.xpf.recyclerview.activity.DataBindingActivity;
 import com.xpf.recyclerview.activity.DragAndSwipeActivity;
 import com.xpf.recyclerview.activity.ExpandableActivity;
+import com.xpf.recyclerview.activity.HeaderFooterViewActivity;
 import com.xpf.recyclerview.activity.ItemClickEventActivity;
 import com.xpf.recyclerview.activity.LinearLayoutActivity;
 import com.xpf.recyclerview.activity.MultiItemActivity;
@@ -41,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
             LinearLayoutActivity.class, StaggeredGridLayoutActivity.class, AddHeadRecyclerViewActivity.class,
             onViewAttachedToWindow.class, MultiItemActivity.class, MultipleItemQuickActivity.class, SectionActivity.class,
             DragAndSwipeActivity.class, ItemClickEventActivity.class, ExpandableActivity.class, DataBindingActivity.class,
-            UpFetchActivity.class, SectionMultiItemActivity.class, CustomDragSwipeActivity.class};
+            UpFetchActivity.class, SectionMultiItemActivity.class, CustomDragSwipeActivity.class, HeaderFooterViewActivity.class};
 
     private static final String[] TITLE = {
             "LinearLayoutActivity", "StaggeredGridLayoutActivity", "AddHeadRecyclerViewActivity",
             "onViewAttachedToWindow", "MultiItemActivity", "MultipleItemQuickActivity", "SectionActivity",
             "DragAndSwipeActivity", "ItemClickEventActivity", "ExpandableActivity", "DataBindingActivity",
-            "UpFetchActivity", "SectionMultiItemActivity", "CustomDragSwipeActivity"};
+            "UpFetchActivity", "SectionMultiItemActivity", "CustomDragSwipeActivity", "HeaderFooterViewActivity"};
 
     private RecyclerView mRecyclerView;
     private List<ClickItem> mItemList;
