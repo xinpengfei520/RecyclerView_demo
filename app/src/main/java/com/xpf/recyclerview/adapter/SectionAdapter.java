@@ -3,6 +3,7 @@ package com.xpf.recyclerview.adapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseSectionQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.xpf.recyclerview.R;
@@ -10,6 +11,8 @@ import com.xpf.recyclerview.entity.Movie;
 import com.xpf.recyclerview.entity.MySection;
 
 import java.util.List;
+
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 /**
  * Created by x-sir on 2018/12/24 :)
@@ -40,7 +43,8 @@ public class SectionAdapter extends BaseSectionQuickAdapter<MySection, BaseViewH
     protected void convert(BaseViewHolder helper, MySection item) {
         Movie movie = item.t;
         helper.setText(R.id.tv, movie.getName());
-        Glide.with(mContext).load(movie.getCover()).crossFade()
+        RequestOptions options = new RequestOptions().placeholder(R.mipmap.ic_launcher);
+        Glide.with(mContext).load(movie.getCover()).transition(withCrossFade()).apply(options)
                 .into((ImageView) helper.getView(R.id.iv));
     }
 }

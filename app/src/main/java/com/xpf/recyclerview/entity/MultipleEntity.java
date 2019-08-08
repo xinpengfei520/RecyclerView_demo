@@ -36,5 +36,4 @@ public class MultipleEntity<T> {
     public void setT(T t) {
         this.t = t;
     }
-
 }

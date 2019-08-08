@@ -11,7 +11,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".activity.WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -36,7 +37,7 @@
         <activity android:name=".activity.UpFetchActivity" />
         <activity android:name=".activity.SectionMultiItemActivity" />
         <activity android:name=".activity.CustomDragSwipeActivity" />
-        <activity android:name=".activity.HeaderFooterViewActivity"></activity>
+        <activity android:name=".activity.HeaderFooterViewActivity" />
     </application>
 
 </manifest>
