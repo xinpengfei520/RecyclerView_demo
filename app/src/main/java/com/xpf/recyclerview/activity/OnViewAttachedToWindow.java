@@ -1,12 +1,13 @@
 package com.xpf.recyclerview.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.xpf.recyclerview.R;
 
@@ -15,7 +16,7 @@ import com.xpf.recyclerview.R;
  * Function:RecyclerView 的 StaggeredGridLayoutManager 加头
  * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
  */
-public class onViewAttachedToWindow extends AppCompatActivity {
+public class OnViewAttachedToWindow extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -36,7 +37,7 @@ public class onViewAttachedToWindow extends AppCompatActivity {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(onViewAttachedToWindow.this).inflate(R.layout.item, parent, false);
+            View view = LayoutInflater.from(OnViewAttachedToWindow.this).inflate(R.layout.item, parent, false);
             return new ViewHolder(view);
         }
 

@@ -1,16 +1,17 @@
 package com.xpf.recyclerview.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import com.chad.library.adapter.base.entity.MultiItemEntity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.ExpandableItemAdapter;
 import com.xpf.recyclerview.data.DataServer;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xpf on 2018/12/25 :)
@@ -28,9 +29,10 @@ public class ExpandableActivity extends AppCompatActivity {
         setContentView(R.layout.activity_expandable);
 
         mRecyclerView = findViewById(R.id.recyclerView);
-        ArrayList<MultiItemEntity> expandableData = DataServer.getExpandableData();
+        List<BaseNode> expandableData = DataServer.getExpandableData();
 
-        mAdapter = new ExpandableItemAdapter(expandableData);
+        mAdapter = new ExpandableItemAdapter();
+        mAdapter.setList(expandableData);
 
         // 设置布局管理器
         final GridLayoutManager manager = new GridLayoutManager(this, 3);
@@ -44,6 +46,6 @@ public class ExpandableActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         // 这种情况下，布局管理器必须要在 setAdapter 之后设置！！！
         mRecyclerView.setLayoutManager(manager);
-        mAdapter.expandAll();
+//        mAdapter.expand(1);
     }
 }

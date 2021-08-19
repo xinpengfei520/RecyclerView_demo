@@ -1,11 +1,13 @@
 package com.xpf.recyclerview.base;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
@@ -15,14 +17,11 @@ import java.util.List;
  * Created by x-sir on 2018/12/26 :)
  * Function:
  */
-public abstract class BaseDataBindingAdapter<T, Binding extends ViewDataBinding> extends BaseQuickAdapter<T, BaseBindingViewHolder<Binding>> {
+public abstract class BaseDataBindingAdapter<T, Binding extends ViewDataBinding> extends
+        BaseQuickAdapter<T, BaseBindingViewHolder<Binding>> {
 
     public BaseDataBindingAdapter(@LayoutRes int layoutResId, @Nullable List<T> data) {
         super(layoutResId, data);
-    }
-
-    public BaseDataBindingAdapter(@Nullable List<T> data) {
-        super(data);
     }
 
     public BaseDataBindingAdapter(@LayoutRes int layoutResId) {
@@ -36,10 +35,11 @@ public abstract class BaseDataBindingAdapter<T, Binding extends ViewDataBinding>
 
     @Override
     protected BaseBindingViewHolder<Binding> createBaseViewHolder(ViewGroup parent, int layoutResId) {
-        Binding binding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);
-        View view;
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        Binding binding = DataBindingUtil.inflate(layoutInflater, layoutResId, parent, false);
+        View view = null;
         if (binding == null) {
-            view = getItemView(layoutResId, parent);
+//            view = getItemView(layoutResId, parent);
         } else {
             view = binding.getRoot();
         }

@@ -1,6 +1,6 @@
 package com.xpf.recyclerview.data;
 
-import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.xpf.recyclerview.MyApplication;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.entity.DragItem;
@@ -139,7 +139,7 @@ public class DataServer {
         return list;
     }
 
-    public static ArrayList<MultiItemEntity> getExpandableData() {
+    public static List<BaseNode> getExpandableData() {
         int lv0Count = 9;
         int lv1Count = 3;
         int personCount = 5;
@@ -147,19 +147,25 @@ public class DataServer {
         String[] nameList = {"Bob", "Andy", "Lily", "Brown", "Bruce"};
         Random random = new Random();
 
-        ArrayList<MultiItemEntity> res = new ArrayList<>();
+        List<BaseNode> res = new ArrayList<>();
+
         for (int i = 0; i < lv0Count; i++) {
-            Level0Item lv0 = new Level0Item("This is " + i + "th item in Level 0", "subtitle of " + i);
+
+            List<BaseNode> secondNodeList = new ArrayList<>();
             for (int j = 0; j < lv1Count; j++) {
-                Level1Item lv1 = new Level1Item("Level 1 item: " + j, "(no animation)");
+
+                List<BaseNode> thirdNodeList = new ArrayList<>();
                 for (int k = 0; k < personCount; k++) {
-                    lv1.addSubItem(new Person(nameList[k], random.nextInt(40)));
+                    thirdNodeList.add(new Person(nameList[k], random.nextInt(40)));
                 }
-                lv0.addSubItem(lv1);
+
+                Level1Item lv1 = new Level1Item(thirdNodeList, "Level 1 item: " + j, "(no animation)");
+                secondNodeList.add(lv1);
             }
+
+            Level0Item lv0 = new Level0Item(secondNodeList, "This is " + i + "th item in Level 0", "subtitle of " + i);
             res.add(lv0);
         }
-        res.add(new Level0Item("This is " + lv0Count + "th item in Level 0", "subtitle of " + lv0Count));
 
         return res;
     }

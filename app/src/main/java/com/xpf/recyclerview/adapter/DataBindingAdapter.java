@@ -1,14 +1,9 @@
 package com.xpf.recyclerview.adapter;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.xpf.recyclerview.R;
-import com.xpf.recyclerview.BR;
+import com.xpf.recyclerview.databinding.ItemMovieBinding;
 import com.xpf.recyclerview.entity.Film;
 import com.xpf.recyclerview.entity.FilmPresenter;
 
@@ -19,7 +14,7 @@ import java.util.List;
  * Function:DataBinding 实现数据绑定
  * {# @link https://github.com/xinpengfei520/RecyclerView_demo}
  */
-public class DataBindingAdapter extends BaseQuickAdapter<Film, DataBindingAdapter.MovieViewHolder> {
+public class DataBindingAdapter extends BaseQuickAdapter<Film, BaseDataBindingHolder<ItemMovieBinding>> {
 
     private FilmPresenter mPresenter;
 
@@ -29,34 +24,15 @@ public class DataBindingAdapter extends BaseQuickAdapter<Film, DataBindingAdapte
     }
 
     @Override
-    protected void convert(MovieViewHolder helper, Film item) {
-        ViewDataBinding binding = helper.getBinding();
-        // BR 什么鬼？？？
-        binding.setVariable(BR.movie, item);
-        binding.setVariable(BR.presenter, mPresenter);
-        binding.executePendingBindings();
-        helper.setImageResource(R.id.iv, R.drawable.film_cover);
-    }
-
-    @Override
-    protected View getItemView(int layoutResId, ViewGroup parent) {
-        ViewDataBinding binding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);
-        if (binding == null) {
-            return super.getItemView(layoutResId, parent);
-        }
-        View view = binding.getRoot();
-        view.setTag(R.id.BaseQuickAdapter_databinding_support, binding);
-        return view;
-    }
-
-    public static class MovieViewHolder extends BaseViewHolder {
-
-        public MovieViewHolder(View view) {
-            super(view);
-        }
-
-        public ViewDataBinding getBinding() {
-            return (ViewDataBinding) itemView.getTag(R.id.BaseQuickAdapter_databinding_support);
+    protected void convert(BaseDataBindingHolder<ItemMovieBinding> holder, Film item) {
+        // 获取 Binding
+        ItemMovieBinding binding = holder.getDataBinding();
+        if (binding != null) {
+            binding.setMovie(item);
+            binding.setPresenter(mPresenter);
+            binding.executePendingBindings();
+            binding.iv.setImageResource(R.drawable.film_cover);
+            //holder.setImageResource(R.id.iv, R.drawable.film_cover);
         }
     }
 }

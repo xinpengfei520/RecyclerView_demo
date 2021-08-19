@@ -1,7 +1,8 @@
 package com.xpf.recyclerview.adapter;
 
-import com.chad.library.adapter.base.BaseItemDraggableAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.module.DraggableModule;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.xpf.recyclerview.R;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by x-sir on 2018/12/24 :)
  * Function:
  */
-public class DraggerAdapter extends BaseItemDraggableAdapter<String, BaseViewHolder> {
+public class DraggerAdapter extends BaseQuickAdapter<String, BaseViewHolder> implements DraggableModule {
 
     public DraggerAdapter(int layoutResId, List<String> data) {
         super(layoutResId, data);

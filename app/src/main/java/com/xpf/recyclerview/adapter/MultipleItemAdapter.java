@@ -1,9 +1,8 @@
 package com.xpf.recyclerview.adapter;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
-import com.chad.library.adapter.base.BaseViewHolder;
-import com.chad.library.adapter.base.MultipleItemRvAdapter;
+import com.chad.library.adapter.base.BaseProviderMultiAdapter;
 import com.xpf.recyclerview.entity.MultipleEntity;
 import com.xpf.recyclerview.provider.NameContentItemProvider;
 import com.xpf.recyclerview.provider.NameImageItemProvider;
@@ -15,7 +14,7 @@ import java.util.List;
  * Created by x-sir on 2018/12/13 :)
  * Function:
  */
-public class MultipleItemAdapter extends MultipleItemRvAdapter<MultipleEntity, BaseViewHolder> {
+public class MultipleItemAdapter extends BaseProviderMultiAdapter<MultipleEntity> {
 
     public static final int TYPE_NAME = 1;
     public static final int TYPE_NAME_IMG = 2;
@@ -23,14 +22,16 @@ public class MultipleItemAdapter extends MultipleItemRvAdapter<MultipleEntity, B
 
     public MultipleItemAdapter(@Nullable List<MultipleEntity> data) {
         super(data);
-        finishInitialize();
+        addItemProvider(new NameItemProvider());
+        addItemProvider(new NameImageItemProvider());
+        addItemProvider(new NameContentItemProvider());
     }
 
     @Override
-    protected int getViewType(MultipleEntity multipleEntity) {
+    protected int getItemType(List<? extends MultipleEntity> list, int i) {
         int type = 0;
 
-        switch (multipleEntity.getType()) {
+        switch (list.get(i).getType()) {
             case MultipleEntity.NAME:
                 type = TYPE_NAME;
                 break;
@@ -45,12 +46,5 @@ public class MultipleItemAdapter extends MultipleItemRvAdapter<MultipleEntity, B
         }
 
         return type;
-    }
-
-    @Override
-    public void registerItemProvider() {
-        mProviderDelegate.registerProvider(new NameItemProvider());
-        mProviderDelegate.registerProvider(new NameImageItemProvider());
-        mProviderDelegate.registerProvider(new NameContentItemProvider());
     }
 }

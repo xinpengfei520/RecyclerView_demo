@@ -1,7 +1,8 @@
 package com.xpf.recyclerview.adapter;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.module.LoadMoreModule;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.entity.FirstTypeBean;
 import com.xpf.recyclerview.entity.FourTypeBean;
@@ -15,7 +16,7 @@ import java.util.List;
  * Created by x-sir on 2018/12/19 :)
  * Function:
  */
-public class MultipleItemQuickAdapter extends BaseMultiItemQuickAdapter<MultipleQuickEntity, BaseViewHolder> {
+public class MultipleItemQuickAdapter extends BaseMultiItemQuickAdapter<MultipleQuickEntity, BaseViewHolder> implements LoadMoreModule {
 
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with

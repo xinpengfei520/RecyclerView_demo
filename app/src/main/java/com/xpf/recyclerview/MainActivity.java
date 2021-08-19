@@ -2,11 +2,12 @@ package com.xpf.recyclerview;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xpf.recyclerview.activity.AddHeadRecyclerViewActivity;
@@ -23,7 +24,7 @@ import com.xpf.recyclerview.activity.SectionActivity;
 import com.xpf.recyclerview.activity.SectionMultiItemActivity;
 import com.xpf.recyclerview.activity.StaggeredGridLayoutActivity;
 import com.xpf.recyclerview.activity.UpFetchActivity;
-import com.xpf.recyclerview.activity.onViewAttachedToWindow;
+import com.xpf.recyclerview.activity.OnViewAttachedToWindow;
 import com.xpf.recyclerview.adapter.ClickItemAdapter;
 import com.xpf.recyclerview.decoration.DividerItemDecoration;
 import com.xpf.recyclerview.entity.ClickItem;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final Class<?>[] ACTIVITY = {
             LinearLayoutActivity.class, StaggeredGridLayoutActivity.class, AddHeadRecyclerViewActivity.class,
-            onViewAttachedToWindow.class, MultiItemActivity.class, MultipleItemQuickActivity.class, SectionActivity.class,
+            OnViewAttachedToWindow.class, MultiItemActivity.class, MultipleItemQuickActivity.class, SectionActivity.class,
             DragAndSwipeActivity.class, ItemClickEventActivity.class, ExpandableActivity.class, DataBindingActivity.class,
             UpFetchActivity.class, SectionMultiItemActivity.class, CustomDragSwipeActivity.class, HeaderFooterViewActivity.class};
 
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private void setAdapter() {
         BaseQuickAdapter adapter = new ClickItemAdapter(R.layout.item_textview, mItemList);
         // 开启加载动画
-        adapter.openLoadAnimation();
+        adapter.setAnimationEnable(true);
         // 添加头部布局
         View header = getLayoutInflater().inflate(R.layout.header_view, (ViewGroup) mRecyclerView.getParent(), false);
         adapter.addHeaderView(header);

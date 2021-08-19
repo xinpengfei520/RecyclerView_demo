@@ -1,9 +1,11 @@
 package com.xpf.recyclerview.base;
 
-import android.databinding.ViewDataBinding;
 import android.view.View;
 
-import com.chad.library.adapter.base.BaseViewHolder;
+import androidx.databinding.ViewDataBinding;
+
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+
 
 /**
  * Created by x-sir on 2018/12/26 :)

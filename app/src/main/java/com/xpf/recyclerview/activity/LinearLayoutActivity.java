@@ -2,11 +2,13 @@ package com.xpf.recyclerview.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.os.Looper;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.LinearLayoutAdapter;
@@ -36,19 +38,9 @@ public class LinearLayoutActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         notDataView = getLayoutInflater().inflate(R.layout.empty_view, (ViewGroup) recyclerView.getParent(), false);
-        notDataView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRefresh();
-            }
-        });
+        notDataView.setOnClickListener(v -> onRefresh());
         errorView = getLayoutInflater().inflate(R.layout.error_view, (ViewGroup) recyclerView.getParent(), false);
-        errorView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRefresh();
-            }
-        });
+        errorView.setOnClickListener(v -> onRefresh());
 
         linearLayoutAdapter = new LinearLayoutAdapter(R.layout.item_linearlayout, DataServer.getLinearData(0));
         recyclerView.setAdapter(linearLayoutAdapter);
@@ -60,20 +52,17 @@ public class LinearLayoutActivity extends AppCompatActivity {
      * 一进来页面，先显示模拟网络请求，显示 loading 并加载数据，然后显示网络错误，当再次点击时，显示为空，再次点击时显示出数据
      */
     private void onRefresh() {
-        linearLayoutAdapter.setEmptyView(R.layout.loading_view, (ViewGroup) recyclerView.getParent());
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (mError) {
-                    linearLayoutAdapter.setEmptyView(errorView);
-                    mError = false;
+        linearLayoutAdapter.setEmptyView(R.layout.loading_view);
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            if (mError) {
+                linearLayoutAdapter.setEmptyView(errorView);
+                mError = false;
+            } else {
+                if (mNoData) {
+                    linearLayoutAdapter.setEmptyView(notDataView);
+                    mNoData = false;
                 } else {
-                    if (mNoData) {
-                        linearLayoutAdapter.setEmptyView(notDataView);
-                        mNoData = false;
-                    } else {
-                        linearLayoutAdapter.setNewData(DataServer.getLinearData(50));
-                    }
+                    linearLayoutAdapter.setNewData(DataServer.getLinearData(50));
                 }
             }
         }, 2000);

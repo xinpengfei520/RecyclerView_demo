@@ -2,16 +2,17 @@ package com.xpf.recyclerview.decoration;
 
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseSectionQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.SectionEntity;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 
 /**
  * 应用于RecyclerView的GridLayoutManager，水平方向上固定间距大小，从而使条目宽度自适应。<br>
@@ -61,7 +62,7 @@ public class GridSectionAverageGapItemDecoration extends RecyclerView.ItemDecora
             int position = parent.getChildAdapterPosition(view);
             SectionEntity entity = adapter.getItem(position);
 
-            if (entity != null && entity.isHeader) {
+            if (entity != null && entity.isHeader()) {
                 //不处理header
                 isPreItemHeader = true;
                 outRect.set(0,0,0,0);
@@ -134,7 +135,7 @@ public class GridSectionAverageGapItemDecoration extends RecyclerView.ItemDecora
         SectionEntity sectionEntity = null;
         for (int i = curPos + 1; i < count; i++) {
             sectionEntity = adapter.getItem(i);
-            if (sectionEntity != null && sectionEntity.isHeader) {
+            if (sectionEntity != null && sectionEntity.isHeader()) {
                 return i - 1;
             }
         }

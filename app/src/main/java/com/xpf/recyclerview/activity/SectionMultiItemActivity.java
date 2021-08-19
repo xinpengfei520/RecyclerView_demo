@@ -1,10 +1,12 @@
 package com.xpf.recyclerview.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.chad.library.adapter.base.listener.GridSpanSizeLookup;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.SectionMultiItemAdapter;
 import com.xpf.recyclerview.data.DataServer;
@@ -34,7 +36,7 @@ public class SectionMultiItemActivity extends AppCompatActivity {
 
     private void initView() {
         mRecyclerView = findViewById(R.id.recyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void initData() {
@@ -42,7 +44,17 @@ public class SectionMultiItemActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        SectionMultiItemAdapter sectionAdapter = new SectionMultiItemAdapter(R.layout.item_section_header, mSectionMultiData);
+        SectionMultiItemAdapter sectionAdapter = new SectionMultiItemAdapter(mSectionMultiData);
+        final GridLayoutManager manager = new GridLayoutManager(this, 4);
+        mRecyclerView.setLayoutManager(manager);
+        sectionAdapter.setGridSpanSizeLookup(new GridSpanSizeLookup() {
+            @Override
+            public int getSpanSize(GridLayoutManager gridLayoutManager, int viewType, int position) {
+                //return mSectionMultiData.get(position).getSpanSize();
+                return 4;
+            }
+        });
+
         // 设置 Item 的子 View 的点击事件
         sectionAdapter.setOnItemChildClickListener((adapter, view, position) -> {
             SectionMultiItem item = (SectionMultiItem) adapter.getData().get(position);

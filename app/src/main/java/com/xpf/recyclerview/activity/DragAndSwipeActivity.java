@@ -2,16 +2,14 @@ package com.xpf.recyclerview.activity;
 
 import android.graphics.Canvas;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.chad.library.adapter.base.listener.OnItemDragListener;
 import com.chad.library.adapter.base.listener.OnItemSwipeListener;
 import com.xpf.recyclerview.R;
@@ -31,8 +29,6 @@ public class DragAndSwipeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<String> mData;
     private DraggerAdapter draggerAdapter;
-    private ItemDragAndSwipeCallback mItemDragAndSwipeCallback;
-    private ItemTouchHelper mItemTouchHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,30 +84,23 @@ public class DragAndSwipeActivity extends AppCompatActivity {
         };
 
         draggerAdapter = new DraggerAdapter(R.layout.item_dragger, mData);
-        mItemDragAndSwipeCallback = new ItemDragAndSwipeCallback(draggerAdapter);
-
-        // 创建 Item 拖动时的帮助类
-        mItemTouchHelper = new ItemTouchHelper(mItemDragAndSwipeCallback);
-        mItemTouchHelper.attachToRecyclerView(recyclerView);
 
         // 设置滑动删除的标记，支持开始和结束为止滑动（另外，还有 DOWN & UP）
-        mItemDragAndSwipeCallback.setSwipeMoveFlags(ItemTouchHelper.START | ItemTouchHelper.END);
+        draggerAdapter.getDraggableModule().getItemTouchHelperCallback().setSwipeMoveFlags(ItemTouchHelper.START | ItemTouchHelper.END);
         // 开启滑动删除
-        draggerAdapter.enableSwipeItem();
-        // 设置滑动删除的监听器
-        draggerAdapter.setOnItemSwipeListener(onItemSwipeListener);
+        draggerAdapter.getDraggableModule().setSwipeEnabled(true);
         // 设置 Item 可拖动
-        draggerAdapter.enableDragItem(mItemTouchHelper);
+        draggerAdapter.getDraggableModule().setDragEnabled(true);
+        // 设置滑动删除的监听器
+        draggerAdapter.getDraggableModule().setOnItemSwipeListener(onItemSwipeListener);
         // 设置 Item 拖动时的监听器
-        draggerAdapter.setOnItemDragListener(onItemDragListener);
+        draggerAdapter.getDraggableModule().setOnItemDragListener(onItemDragListener);
         // 设置 RecycleView 的适配器
         recyclerView.setAdapter(draggerAdapter);
 
-        draggerAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Toast.makeText(DragAndSwipeActivity.this, "点击了position:" + position, Toast.LENGTH_SHORT).show();
-            }
-        });
+        draggerAdapter.setOnItemClickListener((adapter, view, position) ->
+                Toast.makeText(DragAndSwipeActivity.this, "点击了position:" + position,
+                        Toast.LENGTH_SHORT).show()
+        );
     }
 }

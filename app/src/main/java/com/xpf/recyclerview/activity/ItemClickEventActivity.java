@@ -3,10 +3,11 @@ package com.xpf.recyclerview.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.ItemClickAdapter;
@@ -41,8 +42,8 @@ public class ItemClickEventActivity extends AppCompatActivity {
 
     private void setAdapter() {
         itemClickAdapter = new ItemClickAdapter(itemClickData);
-        itemClickAdapter.openLoadAnimation();
-        itemClickAdapter.isFirstOnly(false);
+        itemClickAdapter.setAnimationEnable(true);
+        itemClickAdapter.setAnimationFirstOnly(false);
         mRecyclerView.setAdapter(itemClickAdapter);
 
         // 处理位置问题，手动滑动到顶部

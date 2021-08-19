@@ -1,11 +1,11 @@
 package com.xpf.recyclerview.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.MultipleItemAdapter;
 import com.xpf.recyclerview.data.DataServer;
@@ -38,29 +38,26 @@ public class MultiItemActivity extends AppCompatActivity {
         final List<MultipleEntity> data = DataServer.getData();
         MultipleItemAdapter multipleItemAdapter = new MultipleItemAdapter(data);
         // 设置加载动画，有 5 种动画效果可选（ALPHAIN、SCALEIN、SLIDEIN_BOTTOM、SLIDEIN_LEFT、SLIDEIN_RIGHT）
-        multipleItemAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        multipleItemAdapter.setAnimationEnable(true);
         // 设置是否只有第一次加载时显示动画
-        multipleItemAdapter.isFirstOnly(false);
-        multipleItemAdapter.setSpanSizeLookup(new BaseQuickAdapter.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
-                int spanSize = 0;
-                switch (data.get(position).getType()) {
-                    case MultipleEntity.NAME:
-                        spanSize = SPAN_SIZE1;
-                        break;
-                    case MultipleEntity.NAME_IMG:
-                        spanSize = SPAN_SIZE3;
-                        break;
-                    case MultipleEntity.NAME_CONTENT:
-                        spanSize = SPAN_SIZE4;
-                        break;
-                    default:
-                        break;
-                }
-
-                return spanSize;
+        multipleItemAdapter.setAnimationFirstOnly(false);
+        multipleItemAdapter.setGridSpanSizeLookup((gridLayoutManager, viewType, position) -> {
+            int spanSize = 0;
+            switch (data.get(position).getType()) {
+                case MultipleEntity.NAME:
+                    spanSize = SPAN_SIZE1;
+                    break;
+                case MultipleEntity.NAME_IMG:
+                    spanSize = SPAN_SIZE3;
+                    break;
+                case MultipleEntity.NAME_CONTENT:
+                    spanSize = SPAN_SIZE4;
+                    break;
+                default:
+                    break;
             }
+
+            return spanSize;
         });
 
         mRecyclerView.setAdapter(multipleItemAdapter);

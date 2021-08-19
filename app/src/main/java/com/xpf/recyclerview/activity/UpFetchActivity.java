@@ -1,9 +1,10 @@
 package com.xpf.recyclerview.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.UpFetchAdapter;
@@ -32,10 +33,10 @@ public class UpFetchActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setNewData(genData());
-        mAdapter.setUpFetchEnable(true);
+        mAdapter.getUpFetchModule().setUpFetchEnable(true);
         // start fetch when scroll to position 2, default is 1.
-        mAdapter.setStartUpFetchPosition(2);
-        mAdapter.setUpFetchListener(this::startUpFetch);
+        mAdapter.getUpFetchModule().setStartUpFetchPosition(2);
+        mAdapter.getUpFetchModule().setOnUpFetchListener(this::startUpFetch);
     }
 
     private int count;
@@ -43,15 +44,15 @@ public class UpFetchActivity extends AppCompatActivity {
     private void startUpFetch() {
         count++;
         // set fetching on when start network request.
-        mAdapter.setUpFetching(true);
+        mAdapter.getUpFetchModule().setUpFetching(true);
         // get data from internet.
         mRecyclerView.postDelayed(() -> {
             mAdapter.addData(0, genData());
             // set fetching off when network request ends.
-            mAdapter.setUpFetching(false);
+            mAdapter.getUpFetchModule().setUpFetching(false);
             // set fetch enable false when you don't need anymore.
             if (count > 5) {
-                mAdapter.setUpFetchEnable(false);
+                mAdapter.getUpFetchModule().setUpFetchEnable(false);
             }
         }, 1000);
     }
