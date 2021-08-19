@@ -22,6 +22,7 @@ public class SectionMultiItemAdapter extends BaseMultiItemQuickAdapter<SectionMu
      */
     public SectionMultiItemAdapter(List<SectionMultiItem> data) {
         super(data);
+        // head 类型就是一个 section
         addItemType(SectionMultiItem.HEAD, R.layout.item_section_header);
         addItemType(SectionMultiItem.TEXT, R.layout.item_text_view);
         addItemType(SectionMultiItem.IMG_TEXT, R.layout.item_img_text_view);
