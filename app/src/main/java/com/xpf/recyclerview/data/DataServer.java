@@ -188,23 +188,23 @@ public class DataServer {
         Video video = new Video(COVER_URL, NAME);
 
         // add section data
-        list.add(new SectionMultiItem(true, "Section 1", true));
+        list.add(new SectionMultiItem(SectionMultiItem.HEAD, "Section 1", true));
         // add multiple type item data ---start---
         list.add(new SectionMultiItem(SectionMultiItem.TEXT, new Video(COVER_URL, "video_id_0")));
         list.add(new SectionMultiItem(SectionMultiItem.TEXT, new Video(COVER_URL, "video_id_1")));
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, new Video(COVER_URL, "video_id_2")));
         // ---end---
 
-        list.add(new SectionMultiItem(true, "Section 2", false));
+        list.add(new SectionMultiItem(SectionMultiItem.HEAD, "Section 2", false));
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
         list.add(new SectionMultiItem(SectionMultiItem.TEXT, video));
         list.add(new SectionMultiItem(SectionMultiItem.TEXT, video));
-        list.add(new SectionMultiItem(true, "Section 3", false));
+        list.add(new SectionMultiItem(SectionMultiItem.HEAD, "Section 3", false));
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
-        list.add(new SectionMultiItem(true, "Section 4", false));
+        list.add(new SectionMultiItem(SectionMultiItem.HEAD, "Section 4", false));
         list.add(new SectionMultiItem(SectionMultiItem.TEXT, video));
-        list.add(new SectionMultiItem(true, "Section 5", false));
+        list.add(new SectionMultiItem(SectionMultiItem.HEAD, "Section 5", false));
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));
         list.add(new SectionMultiItem(SectionMultiItem.IMG_TEXT, video));

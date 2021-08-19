@@ -14,13 +14,14 @@ public class SectionMultiItem implements MultiItemEntity {
     public static final int IMG = 2;
     public static final int IMG_TEXT = 3;
     private String header;
+    // 确保此处的 itemType 必须被赋值，否则会导致使用默认值 0 抛异常！！！
     private int itemType;
     private boolean isMore;
-    private boolean isHeader;
     private Video video;
+    private int spanSize = 4;
 
-    public SectionMultiItem(boolean isHeader, String header, boolean isMore) {
-        this.isHeader = isHeader;
+    public SectionMultiItem(int itemType, String header, boolean isMore) {
+        this.itemType = itemType;
         this.isMore = isMore;
         this.header = header;
     }
@@ -51,11 +52,11 @@ public class SectionMultiItem implements MultiItemEntity {
         return itemType;
     }
 
-    public boolean isHeader() {
-        return isHeader;
-    }
-
     public String getHeader() {
         return header;
+    }
+
+    public int getSpanSize() {
+        return spanSize;
     }
 }

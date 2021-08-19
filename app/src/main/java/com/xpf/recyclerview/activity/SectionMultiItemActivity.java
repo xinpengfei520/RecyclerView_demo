@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.listener.GridSpanSizeLookup;
 import com.xpf.recyclerview.R;
 import com.xpf.recyclerview.adapter.SectionMultiItemAdapter;
 import com.xpf.recyclerview.data.DataServer;
@@ -23,37 +22,23 @@ import java.util.List;
 public class SectionMultiItemActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private List<SectionMultiItem> mSectionMultiData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_multiple_item);
-        initView();
-        initData();
+        mRecyclerView = findViewById(R.id.recyclerView);
         setAdapter();
     }
 
-    private void initView() {
-        mRecyclerView = findViewById(R.id.recyclerView);
-        //mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    private void initData() {
-        mSectionMultiData = DataServer.getSectionMultiData();
-    }
-
     private void setAdapter() {
-        SectionMultiItemAdapter sectionAdapter = new SectionMultiItemAdapter(mSectionMultiData);
+        List<SectionMultiItem> data = DataServer.getSectionMultiData();
+        SectionMultiItemAdapter sectionAdapter = new SectionMultiItemAdapter(data);
         final GridLayoutManager manager = new GridLayoutManager(this, 4);
         mRecyclerView.setLayoutManager(manager);
-        sectionAdapter.setGridSpanSizeLookup(new GridSpanSizeLookup() {
-            @Override
-            public int getSpanSize(GridLayoutManager gridLayoutManager, int viewType, int position) {
-                //return mSectionMultiData.get(position).getSpanSize();
-                return 4;
-            }
-        });
+        sectionAdapter.setGridSpanSizeLookup((gridLayoutManager, viewType, position) ->
+                data.get(position).getSpanSize()
+        );
 
         // 设置 Item 的子 View 的点击事件
         sectionAdapter.setOnItemChildClickListener((adapter, view, position) -> {
